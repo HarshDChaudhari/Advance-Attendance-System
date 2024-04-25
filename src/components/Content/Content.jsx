@@ -51,7 +51,7 @@ function Content() {
 
                 <div className='grid grid-cols-1 gap-4 '>
                     <div className='p-4 flex flex-col items-center justify-content gap-4 shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)]'>
-                        <div><img className="size-36 bg-cover bg-center rounded-full" src={{require}} alt="Image of user" /><p>NAME OF THE STUDENT</p></div>
+                        <div><img className="size-36 bg-cover bg-center rounded-full" src={require("../img/person.jpg")} alt="Image of user" /><p>NAME OF THE STUDENT</p></div>
                         <button disabled className='text-white bg-green-700 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2'>Active</button>
                         <p>Enrollment:210210116000</p>
                         <p>Sem:6</p>

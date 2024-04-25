@@ -2,7 +2,11 @@ import React from 'react'
 
 function TimeTable() {
   return (
-    <div>TimeTable</div>
+    <>
+    <div className='' >
+      <img className='size-9/12' src={require("../img/Blank-Timetable.jpg")} alt="" />
+      </div>
+    </>
   )
 }
 
