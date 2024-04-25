@@ -4,20 +4,16 @@ import { Link, NavLink } from 'react-router-dom';
 export default function Home() {
     return (
         <>
-        <div>
-                    <ul className='flex gap-5 justify-center items-center mb-5'> 
-                        <li>
-                            <NavLink to={"/login"}>
-                                Login
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink to={"/signup"}>
-                                Signup
-                            </NavLink>
-                        </li>
-                    </ul>
-                </div>
+       <div className=' flex flex-col gap-8 items-center justify-center h-screen w-full bg-pink-500'>
+            <div>
+
+            <p className='text-6xl'>Advance Attendance System</p>
+            <div className='flex  justify-between border w-full px-28  '>
+                <a href="/Login" className='button'>Login</a>
+                <a href="/Signup" className='button'>Signup</a>
+            </div>
+            </div>
+       </div>
         </>
 
 
