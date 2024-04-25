@@ -1,13 +1,41 @@
-import React from 'react'
-import SignUp from '../signup/SignUp'
-import { NavLink, Link } from 'react-router-dom'
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+    const host = "http://127.0.0.1:5500/";
+    const [credential, setCredential] = useState({ email: "", password: "" });
 
-    const handlesubmit = () => {
-        // Complete Backend
+    let navigate = useNavigate();
 
-    }
+    const handleChange = (e) => {
+        setCredential({ ...credential, [e.target.name]: e.target.value });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const response = await fetch(`${host}api/auth/student/login`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                email: credential.email,
+                password: credential.password,
+            }),
+        });
+
+        const json = await response.json();
+        console.log(json);
+        if (json.success) {
+            //Set auth-token and Redirect
+            localStorage.setItem("token", json.authToken);
+            navigate("/");
+            console.log("You have successfully login");
+        } else {
+            console.log("Invalid Credential");
+        }
+        setCredential({ email: "", password: "" });
+    };
 
     return (
         <>
@@ -20,18 +48,18 @@ const Login = () => {
                     </div>
                     <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
                         <div className="bg-white  px-4 pb-4 pt-8 sm:rounded-lg sm:px-10 sm:pb-6 sm:shadow">
-                            <form className="space-y-6" onSubmit={handlesubmit}>
-                            <select name="selectList" id="selectList" className='w-32 h-10'>
-                               <option value="option 1">Student</option>
-                               <option value="option 2">Teacher</option>
-                            </select>
+                            <form className="space-y-6" onSubmit={handleSubmit}>
+                                <select name="selectList" id="selectList" className='w-32 h-10'>
+                                    <option value="option 1">Student</option>
+                                    <option value="option 2">Teacher</option>
+                                </select>
                                 <div>
                                     <label for="email" className="block text-sm font-medium text-gray-700 ">Email address /
                                         Username</label>
                                     <div className="mt-1">
                                         <input id="email" type="text" data-testid="username" required=""
                                             className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500  sm:text-sm"
-                                            value="" />
+                                            value={credential.email} onChange={handleChange} />
                                     </div>
                                 </div>
                                 <div>
@@ -40,7 +68,8 @@ const Login = () => {
                                         <input id="password" name="password" type="password" data-testid="password"
                                             autocomplete="current-password" required=""
                                             className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                                            value="" />
+                                            onChange={handleChange}
+                                            value={credential.password} />
                                     </div>
                                 </div>
                                 <div className="flex items-center justify-between">
@@ -56,20 +85,20 @@ const Login = () => {
                                     </div>
                                 </div>
 
-                                <div>                                    
-                                        <button data-testid="login" type="submit"
-                                            className="group relative flex w-full justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2  disabled:cursor-wait disabled:opacity-50">
-                                            <span className="absolute inset-y-0 left-0 flex items-center pl-3">
-                                                <svg className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400"
-                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                                                    aria-hidden="true">
-                                                    <path fill-rule="evenodd"
-                                                        d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
-                                                        clip-rule="evenodd"></path>
-                                                </svg>
-                                            </span>
-                                            Sign In
-                                        </button>
+                                <div>
+                                    <button data-testid="login" type="submit"
+                                        className="group relative flex w-full justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2  disabled:cursor-wait disabled:opacity-50">
+                                        <span className="absolute inset-y-0 left-0 flex items-center pl-3">
+                                            <svg className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400"
+                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                                aria-hidden="true">
+                                                <path fill-rule="evenodd"
+                                                    d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
+                                                    clip-rule="evenodd"></path>
+                                            </svg>
+                                        </span>
+                                        Sign In
+                                    </button>
                                 </div>
                             </form>
 
