@@ -17,33 +17,62 @@ const SignUp = () => {
                         <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl ">Create an
                             account
                         </h1>
-                        <form className="space-y-4 md:space-y-6" method="POST">
-                            <div className='sm:flex sm:flex-row sm:gap-3'>
-                                <div>
-                                    <label for="name" className="block mb-2 text-sm font-medium text-gray-900 ">First name</label>
-                                    <input type="text" name="name" id="name" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 " placeholder="" required="" />
-                                </div>
-                                <div>
-                                    <label for="name" className="block mb-2 text-sm font-medium text-gray-900 ">Last name</label>
-                                    <input type="text" name="name" id="name" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 " placeholder="" required="" />
-                                </div>
+                        <htmlForm className="space-y-4 md:space-y-6" method="POST">
+
+                            <div>
+                                <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900 ">Full Name</label>
+                                <input type="string" name="name" id="name" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 " placeholder="" required="" />
                             </div>
                             <div>
-                                <label for="enrollmentNo" className="block mb-2 text-sm font-medium text-gray-900 ">Enrollment Number</label>
-                                <input type="text" name="enrollmentNo" id="enrollmentNo" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 " placeholder="" required="" />
+                                <label htmlFor="enrollmentNo" className="block mb-2 text-sm font-medium text-gray-900 ">Enrollment Number</label>
+                                <input type="string" name="enrollmentNo" id="enrollmentNo" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 " placeholder="" required="" />
+                            </div>
+                            <div>
+                                <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 ">Email Id</label>
+                                <input type=" email" name="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 " placeholder="" required="" />
                             </div>
 
                             <div>
-                                <label for="email" className="block mb-2 text-sm font-medium text-gray-900 ">Email Id</label>
-                                <input type=" email" name="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 " placeholder="" required="" />
+                            <label htmlFor="college" className="block mb-2 text-sm font-medium text-gray-900 " >College </label>
+                            <select name="branchcollege" id="branchcollege" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 ">
+                               <option value="1">021 A</option>
+                               <option value="2">075 B</option>
+                               <option value="3">007 C</option>
+                               <option value="4">008 D</option>
+                            </select>
+                            </div>
+
+                            <div>
+                            <label htmlFor="branch" className="block mb-2 text-sm font-medium text-gray-900 " >Branch  </label>
+                            <select name="branch" id="branch" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 ">
+                               <option value="1">Information Technology</option>
+                               <option value="2">Mechanical Engineering</option>
+                               <option value="3">Production Engineering</option>
+                               <option value="4">Computer Engineering</option>
+                            </select>
+                            </div>
+
+                            <div>
+                                <label htmlFor="phoneNo" className="block mb-2 text-sm font-medium text-gray-900 ">Phone Number</label>
+                                <input type="string" name="phoneNo" id="phoneNo" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 " placeholder="" required="" />
+                            </div>
+
+                            <div>
+                                <label htmlFor="gender" className="block mb-2 text-sm font-medium text-gray-900 " >Gender:  </label>
+                                    <div className='flex gap-2'>
+                                      <input type="radio" value="1 " name="gender" /> Male
+                                      <input type="radio" value="2" name="gender" /> Female
+                                      <input type="radio" value="3" name="gender" /> Other
+                                    </div>
+                            </div>
+
+                            <div>
+                                <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 ">Password</label>
+                                <input type="String" name="password" id="password" placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 " required="" />
                             </div>
                             <div>
-                                <label for="password" className="block mb-2 text-sm font-medium text-gray-900 ">Password</label>
-                                <input type="password" name="password" id="password" placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 " required="" />
-                            </div>
-                            <div>
-                                <label for="password" className="block mb-2 text-sm font-medium text-gray-900 ">Confirm Password</label>
-                                <input type="password" name="password" id="password" placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 " required="" />
+                                <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 ">Confirm Password</label>
+                                <input type="String" name="password" id="password" placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 " required="" />
                             </div>
                             <div>
                             {/* <ReCAPTCHA
@@ -55,7 +84,7 @@ const SignUp = () => {
                             <p className="text-sm font-light text-gray-500 ">Already have an account? 
                             <a className="font-medium text-indigo-600 hover:underline " href="/login"> Login here</a>
                             </p>
-                        </form>
+                        </htmlForm>
                     </div>
                 </div>
             </section>
