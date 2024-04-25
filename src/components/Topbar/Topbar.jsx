@@ -5,7 +5,7 @@ import {fas} from '@fortawesome/free-solid-svg-icons'
 function Topbar() {
   return (
     <>
-    <nav className="bg-blue-400 w-full flex items-center justify-between px-5 py-[10px]">
+    <nav className="bg-[#6777ef] w-full flex items-center justify-between px-5 py-[10px] h-16">
                 <div>
                     <button >
                         <FontAwesomeIcon icon={fas.faBars} style={{color: 'white'}} size='xl'/>

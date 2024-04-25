@@ -15,7 +15,7 @@ export default function Page() {
         <>
             <div className='flex'>
                 <Sidebar />
-                <div className='w-full border border-green-600 border-8'>
+                <div className='w-full'>
                 <Topbar />
                 
                 </div>
