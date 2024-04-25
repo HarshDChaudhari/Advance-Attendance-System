@@ -5,7 +5,7 @@ import {fas} from '@fortawesome/free-solid-svg-icons'
 function Content() {
   return (
     <>
-                <div className='border-2 border-red-600 text-gray-500 p-5 ' >
+                <div className=' text-gray-500 p-5 ' >
                 <div className="container mx-auto">
                     <div className="flex items-center justify-between mb-4">
                         <h1 className="text-3xl font-bold text-gray-800">Dashboard</h1>

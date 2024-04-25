@@ -6,16 +6,16 @@ import {fas} from '@fortawesome/free-solid-svg-icons'
 function Sidebar() {
     return (
         <>
-            <div className='w-72 h-screen bg-white border-2 '>
+            <div className='w-72 h-screen '>
                 <div className='flex justify-between items-center gap-4 bg-[#4c60da] h-16 px-8'>
                     <div><img src={require("../img/logo/logo2.png")} alt="" className='size-10' /></div>
                     <div className='text-white text-xl font-bold'>Attendance</div>
                 </div>
-                <div className=' flex flex-col font-semibold text-base text-zinc-600'>
+                <div className=' flex flex-col font-semibold text-base text-[#6e707e]'>
                     <div>
                         <div className='px-7 py-3 '>
                         <FontAwesomeIcon icon={fas.faTachometerAlt} />
-                            <NavLink to = {"/page"}>
+                            <NavLink to = {"/"}>
                                 DashBoard
                             </NavLink>
                         </div>
