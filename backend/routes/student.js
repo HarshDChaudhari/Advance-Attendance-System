@@ -83,7 +83,7 @@ router.get("/fetchDetail", fetchStudent, async (req, res) => {
 });
 
 router.post(
-    "/Login",
+    "/login",
     [body("email", "Invalid Email Address.").isEmail()],
     async (req, res) => {
         let error = validationResult(req);
