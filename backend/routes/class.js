@@ -4,6 +4,7 @@ const { body, validationResult } = require("express-validator");
 const fetchUser = require("../MiddleWare/fetchStudent");
 const Class = require("../Models/Class");
 const Teacher = require("../Models/Teacher");
+const Student = require("../Models/Student");
 
 router.post("/create", fetchUser, async (req, res) => {
     try {
@@ -38,10 +39,22 @@ router.put("/addStudent", fetchUser, [
         if(!classroom){
             return res.status(400).send("Please create class first")
         }
-        classroom
+        let student = await Student.findOne({ enrollmentNo: req.body.student });
+        if(!student){
+            return res.status(404).send("Student not found");
+        }
+        if(classroom.student.includes(student.id)){
+            return res.status(400).send({ success, error: "Already Added" })
+        }
+        classroom = await Class.findByIdAndUpdate(classroom.id, {
+            $set: { student: [...classroom.student, student.id ] }
+        })
+
+        res.json(classroom);
     } catch (error){
         return res.status(500).send("Internal Server Error!");
     }
-})
+});
+
 
 module.exports = router;
