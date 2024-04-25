@@ -22,10 +22,11 @@ function App() {
   const [login, setLogin] = useState(true)
   return (
     <Router>
-        <div className="flex">
+        <div className="flex ">
           {login ? <Sidebar /> : ""}
           <div className="w-full ">
             {login ? <Topbar /> : ""}
+            <div className=' w-full h-screen shadow-inner-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)]' >
             <Routes>
               <Route exact path="/" element={!login ? <Home /> : <Content />} />
               {/* <Route exact path="/" element={<Home />} /> */}
@@ -46,6 +47,7 @@ function App() {
                 }
               />
             </Routes>
+            </div>
           </div>
         </div>
       </Router>
