@@ -21,6 +21,10 @@ const Login = () => {
                     <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
                         <div className="bg-white  px-4 pb-4 pt-8 sm:rounded-lg sm:px-10 sm:pb-6 sm:shadow">
                             <form className="space-y-6" onSubmit={handlesubmit}>
+                            <select name="selectList" id="selectList" className='w-32 h-10'>
+                               <option value="option 1">Student</option>
+                               <option value="option 2">Teacher</option>
+                            </select>
                                 <div>
                                     <label for="email" className="block text-sm font-medium text-gray-700 ">Email address /
                                         Username</label>
