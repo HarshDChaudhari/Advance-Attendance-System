@@ -6,7 +6,6 @@ import Login from "./components/login/Login"
 import SignUp from './components/signup/SignUp';
 import Page from "./components/Page/Page"
 
-
 function App() {
   const [login, setLogin] = useState(false)
   return (

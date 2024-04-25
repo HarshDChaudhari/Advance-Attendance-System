@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const ClassSchema = new Schema({
-    Branch: {
+    branch: {
         type: Number,
         required: true
     },
@@ -19,10 +19,12 @@ const ClassSchema = new Schema({
         required: true
     },
     student: {
-        type: [String]
+        type: [mongoose.Schema.Types.ObjectId],
+        default: []
     },
     attendance: {
-        type: {Date: [String]}
+        type: {Date: [String]},
+        default: {}
     }
 });
 

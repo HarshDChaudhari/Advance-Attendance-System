@@ -12,6 +12,7 @@ app.use(json());
 
 app.use("/api/auth/student/", require("./routes/student"));
 app.use("/api/auth/teacher/", require("./routes/teacher"));
+app.use("/api/class/", require("./routes/class"));
 
 app.get("/", (req, res) => {
     res.send("Hello Dobuuu❤");
