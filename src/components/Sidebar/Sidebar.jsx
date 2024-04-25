@@ -38,7 +38,9 @@ function Sidebar() {
                             </div>
                             <div className='flex items-center gap-3'>
                                 <FontAwesomeIcon icon={fas.faWpforms} />
-                                Exam
+                                <NavLink to="/attendance">
+                                    Attendance
+                                </NavLink>
                             </div>
                             <div className='flex items-center gap-3'>
                                 <FontAwesomeIcon icon={fas.faReceipt} />

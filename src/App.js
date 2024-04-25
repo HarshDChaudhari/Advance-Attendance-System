@@ -16,6 +16,7 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import Topbar from "./components/Topbar/Topbar";
 import Content from "./components/Content/Content";
 import Personal from "./components/Personal/Personal";
+import Attendance from "./components/Attendance/Attendance";
 
 
 function App() {
@@ -44,6 +45,13 @@ function App() {
                 path="/personal"
                 element={
                   login ? <Personal /> : <Navigate replace to={"/login"} />
+                }
+              />
+              <Route
+                exact
+                path="/attendance"
+                element={
+                  login ? <Attendance /> : <Navigate replace to={"/login"} />
                 }
               />
             </Routes>
